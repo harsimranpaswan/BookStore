@@ -2,6 +2,7 @@ package com.workshop.practice.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +11,9 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import com.workshop.practice.R
+import com.workshop.practice.activity.DescriptionActivity
 import com.workshop.practice.model.Book
 
 class DashboardRecyclerAdapter(val context: Context, val itemList:ArrayList<Book>): RecyclerView.Adapter<DashboardRecyclerAdapter.DashboardViewHolder>(){
@@ -24,12 +27,18 @@ class DashboardRecyclerAdapter(val context: Context, val itemList:ArrayList<Book
 
     override fun onBindViewHolder(holder: DashboardViewHolder, position: Int) {
         val book =itemList[position]
-        holder.name.text=book.BookName
-        holder.author.text= book.BookAuthor
-        holder.price.text= book.BookPrice
-        holder.rating.text= book.BookRating
-        holder.image.setImageResource(book.BookImg)
+        holder.name.text=book.bookName
+        holder.author.text= book.bookAuthor
+        holder.price.text= book.bookPrice
+        holder.rating.text= book.bookRating
+  //    holder.image.setImageResource(book.bookImage)
+        Picasso.get().load(book.bookImage).error(R.drawable.default_book_cover).into(holder.image)
+
         holder.lay.setOnClickListener{
+
+            val intent= Intent(context, DescriptionActivity:: class.java)
+            intent.putExtra("book_id", book.bookId)
+            context.startActivity(intent)
             Toast.makeText(context, "clicked on ${holder.name.text}", Toast.LENGTH_SHORT).show()
         }
     }

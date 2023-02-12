@@ -1,3 +1,3 @@
 package com.workshop.practice.model
 
-data class Book(val BookName: String, val BookAuthor:String, val BookPrice: String, val BookRating: String, val BookImg: Int)
+data class Book(val bookId: String, val bookName: String, val bookAuthor:String, val bookRating: String, val bookPrice: String, val bookImage: String)

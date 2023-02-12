@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -31,6 +32,7 @@ class GarbageActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_garbage)
 
         text_view=findViewById(R.id.text_view)
@@ -64,7 +66,7 @@ class GarbageActivity : AppCompatActivity() {
 
     fun actionToToolbar(){
         setSupportActionBar(toolbar_layout)
-        supportActionBar?.title="The Food Hub"
+        supportActionBar?.title="The Book Store"
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
@@ -117,19 +119,19 @@ class GarbageActivity : AppCompatActivity() {
 
     fun displayDetails(){
 
-        var bundle = intent.getBundleExtra("bundle")
-        var source = bundle?.getString("src")
-
-        if (source == "login")
-            text_view.text =
-                "Email ID: " + bundle?.getString("mail") + "\nPassword: " + bundle?.getString("pass")
-        else if (source == "register")
-            text_view.text =
-                "Name: " + bundle?.getString("name") + "\nEmail ID: " + bundle?.getString("mail") + "\nAddress: " + bundle?.getString(
-                    "address"
-                ) + "\nPassword: " + bundle?.getString("password")
-        else if (source == "forgot")
-            text_view.text = "The OTP is sent to ${bundle?.getString("mail")}"
+//        var bundle = intent.getBundleExtra("bundle")
+//        var source = bundle?.getString("src")
+//
+//        if (source == "login")
+//            text_view.text =
+//                "Email ID: " + bundle?.getString("mail") + "\nPassword: " + bundle?.getString("pass")
+//        else if (source == "register")
+//            text_view.text =
+//                "Name: " + bundle?.getString("name") + "\nEmail ID: " + bundle?.getString("mail") + "\nAddress: " + bundle?.getString(
+//                    "address"
+//                ) + "\nPassword: " + bundle?.getString("password")
+//        else if (source == "forgot")
+//            text_view.text = "The OTP is sent to ${bundle?.getString("mail")}"
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

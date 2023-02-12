@@ -1,9 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/descriptionLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
     tools:context=".activity.DescriptionActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/headingLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/app_gradient">
+
+        <ImageView
+            android:id="@+id/descriptionImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/moby_dick"
+            tools:ignore="InvalidId" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/descriptionImage"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvDescriptionName"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="Restaurant"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvDescriptionRating"
+                android:layout_width="match_parent"
+                android:drawableLeft="@drawable/baseline_star_24"
+                android:layout_height="wrap_content"
+                android:layout_weight="26"
+                android:text="Rating"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tvDescriptionAuthor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Location"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tvDescriptionPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Average Price"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/headingLayout"
+        android:id="@+id/descriptionScroll"
+        android:layout_marginBottom="?attr/actionBarSize">
+
+        <TextView
+            android:id="@+id/descriptionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="18sp"/>
+    </ScrollView>
+    <Button
+        android:id="@+id/addToFav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add to Favourites"
+        android:layout_marginBottom="5dp"
+        android:textAlignment="center"
+        android:layout_alignParentBottom="true"/>
+
+    <RelativeLayout
+        android:id="@+id/progressLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+</RelativeLayout>

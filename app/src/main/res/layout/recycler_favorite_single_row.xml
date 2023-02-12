@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/round_button"
+    android:padding="10dp">
+
+
+    <RelativeLayout
+        android:id="@+id/bookCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        tools:ignore="InvalidId">
+
+        <ImageView
+            android:id="@+id/imgBook"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/default_book_cover" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imgBook"
+
+
+            android:layout_marginTop="10dp"
+            android:text="book name"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvName"
+
+            android:text="author name"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bookCard"
+        android:layout_margin="5dp"
+        android:text="price"
+
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvRating"
+
+        android:layout_margin="5dp"
+        android:drawableLeft="@drawable/baseline_star_24"
+        android:text="rating"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+</RelativeLayout>
