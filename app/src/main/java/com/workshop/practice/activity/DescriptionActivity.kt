@@ -59,8 +59,11 @@ class DescriptionActivity : AppCompatActivity() {
 
         progressLayout.visibility = View.VISIBLE
 
-        if (intent != null)
+        if (intent != null) {
             bookId = intent.getStringExtra("book_id")
+            //Toast.makeText(this@DescriptionActivity, "clicked on ${bookId}", Toast.LENGTH_SHORT).show()
+        }
+
         else {
             Toast.makeText(this@DescriptionActivity, "An Error Occured", Toast.LENGTH_SHORT).show()
             finish()
@@ -76,13 +79,15 @@ class DescriptionActivity : AppCompatActivity() {
         jsonParams.put("book_id", bookId)
 
         if (ConnectionManager().checkConnectivity(this@DescriptionActivity)) {
-
             val jsonObjectRequest =
                 object : JsonObjectRequest(Request.Method.POST, url, jsonParams, Response.Listener {
                     //Responses
+                    val success = it.getBoolean("success")
+                    //Toast.makeText(this@DescriptionActivity, "${success}", Toast.LENGTH_SHORT).show()
                     try {
                         progressLayout.visibility = View.GONE
-                        val success = it.getBoolean("success")
+
+
                         if (success) {
                             val bookJSONObject = it.getJSONObject("book_data")
                             val bookImageUrl = bookJSONObject.getString("image")
@@ -173,7 +178,7 @@ class DescriptionActivity : AppCompatActivity() {
                         } else {
                             Toast.makeText(
                                 this@DescriptionActivity,
-                                "Error Occured",
+                                "success nahi hora",
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
@@ -234,7 +239,7 @@ class DescriptionActivity : AppCompatActivity() {
             when (mode) {
                 1 -> {
                     //check
-                    val book: BookEntity? = db.bookDao().getBookById(bookEntity.book_id.toString())
+                    val book: BookEntity? = db.bookDao().getBookById(bookEntity.bookId.toString())
                     db.close()
                     return book != null
                 }

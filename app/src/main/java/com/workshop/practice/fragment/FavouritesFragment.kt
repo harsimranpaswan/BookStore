@@ -1,5 +1,6 @@
 package com.workshop.practice.fragment
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.AsyncTask
 import android.os.Bundle
@@ -21,7 +22,6 @@ import com.workshop.practice.adapter.FavouritesRecyclerAdapter
 import com.workshop.practice.database.BookDatabase
 import com.workshop.practice.database.BookEntity
 
-
 class FavouritesFragment : Fragment() {
     lateinit var recyclerFavourites: RecyclerView
     lateinit var favouritesRecyclerAdapter: FavouritesRecyclerAdapter
@@ -29,6 +29,8 @@ class FavouritesFragment : Fragment() {
     lateinit var progressBar: ProgressBar
     lateinit var progressLayout: RelativeLayout
     var dbBookList= listOf<BookEntity>()
+
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,27 +40,22 @@ class FavouritesFragment : Fragment() {
         recyclerFavourites= view.findViewById(R.id.recyclerFavourites)
         progressBar=view.findViewById(R.id.progressBar)
         progressLayout=view.findViewById(R.id.progressLayout)
-        layoutManager=GridLayoutManager(activity as Context, 2)
 
         dbBookList= RetrieveFavourites(activity as Context).execute().get()
 
         if(dbBookList!=null && activity!=null){
             progressLayout.visibility=View.GONE
+            layoutManager=GridLayoutManager(activity as Context, 2)
             favouritesRecyclerAdapter= FavouritesRecyclerAdapter(activity as Context, dbBookList)
             recyclerFavourites.adapter=favouritesRecyclerAdapter
             recyclerFavourites.layoutManager=layoutManager
         }
-
         return view
     }
-
     class RetrieveFavourites(val context: Context): AsyncTask<Void, Void, List<BookEntity>>(){
         override fun doInBackground(vararg params: Void?): List<BookEntity> {
             val db= Room.databaseBuilder(context, BookDatabase:: class.java,"books-db" ).build()
             return db.bookDao().getAllBooks()
         }
-
     }
-
-
 }

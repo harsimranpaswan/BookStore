@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/DashboardID"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/recyclerID">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,18 +17,18 @@
         android:padding="5dp">
 
         <ImageView
-            android:layout_weight="1.5"
-            android:layout_width="0dp"
             android:id="@+id/recyclerImage"
+            android:layout_width="0dp"
             android:layout_height="100dp"
+            android:layout_weight="1.5"
             android:padding="2dp"
             android:src="@drawable/ic_baseline_location_on_24"
             tools:ignore="InvalidId" />
 
         <LinearLayout
-            android:layout_weight="4.5"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="4.5"
             android:orientation="vertical">
 
             <LinearLayout
@@ -41,19 +41,19 @@
                     android:id="@+id/tvRecyclerName"
                     android:layout_width="240dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="4"
                     android:text="Restaurant"
                     android:textColor="@color/black"
                     android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:layout_weight="4"/>
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:layout_weight="26"
                     android:id="@+id/tvRecyclerRating"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Rating"
+                    android:layout_weight="26"
                     android:drawableRight="@drawable/baseline_star_24"
+                    android:text="Rating"
                     android:textAlignment="textEnd"
                     android:textSize="14sp" />
             </LinearLayout>

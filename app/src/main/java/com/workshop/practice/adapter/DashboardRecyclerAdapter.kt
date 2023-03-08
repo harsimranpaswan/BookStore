@@ -21,7 +21,6 @@ class DashboardRecyclerAdapter(val context: Context, val itemList:ArrayList<Book
     @SuppressLint("ResourceType")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DashboardViewHolder {
         val view=LayoutInflater.from(parent.context).inflate(R.layout.recycler_dashboard, parent, false)
-
         return DashboardViewHolder(view)
     }
 
@@ -34,12 +33,11 @@ class DashboardRecyclerAdapter(val context: Context, val itemList:ArrayList<Book
   //    holder.image.setImageResource(book.bookImage)
         Picasso.get().load(book.bookImage).error(R.drawable.default_book_cover).into(holder.image)
 
-        holder.lay.setOnClickListener{
-
-            val intent= Intent(context, DescriptionActivity:: class.java)
-            intent.putExtra("book_id", book.bookId)
-            context.startActivity(intent)
-            Toast.makeText(context, "clicked on ${holder.name.text}", Toast.LENGTH_SHORT).show()
+        holder.dashboardID.setOnClickListener{
+            val intentd= Intent(context, DescriptionActivity:: class.java)
+            intentd.putExtra("book_id", book.bookId)
+            Toast.makeText(context, "clicked on ${book.bookName}", Toast.LENGTH_SHORT).show()
+            context.startActivity(intentd)
         }
     }
 
@@ -54,7 +52,7 @@ class DashboardRecyclerAdapter(val context: Context, val itemList:ArrayList<Book
         val author: TextView = view.findViewById(R.id.tvRecyclerAuthor)
         val price: TextView = view.findViewById(R.id.tvRecyclerPrice)
         val image: ImageView = view.findViewById(R.id.recyclerImage)
-        val lay: LinearLayout= view.findViewById(R.id.recyclerID)
+        val dashboardID: LinearLayout= view.findViewById(R.id.DashboardID)
     }
     //ViewHolder Finish
 

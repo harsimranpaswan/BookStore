@@ -54,7 +54,7 @@ class RegisterActivity : AppCompatActivity() {
             else if (password != cnfPassword)
                 etcnfPassword.error = "Passwords do not match"
             else {
-                var intent = Intent(this@RegisterActivity, GarbageActivity::class.java)
+                var intent = Intent(this@RegisterActivity, MainActivity::class.java)
                 var bundle = Bundle()
                 bundle.putString("src", "register")
                 bundle.putString("name", name)

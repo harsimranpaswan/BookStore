@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import com.workshop.practice.R
+import com.workshop.practice.fragment.ProfileFragment
 
 class LoginActivity : AppCompatActivity() {
     lateinit var tvForgot: TextView
@@ -22,8 +23,6 @@ class LoginActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window?.decorView?.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
         setContentView(R.layout.activity_login)
 
 
@@ -39,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
             else if(pass.length<8)
                 etPassword.setError("Please enter a valid password")
             else {
-                var intent = Intent(this@LoginActivity, GarbageActivity::class.java)
+                var intent = Intent(this@LoginActivity, MainActivity:: class.java)
                 var bundle = Bundle()
                 bundle.putString("src", "login")
                 bundle.putString("mail", mail)

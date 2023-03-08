@@ -66,7 +66,6 @@ class DashboardFragment : Fragment() {
         progressLayout = view.findViewById(R.id.progressLayout)
         progressBar = view.findViewById(R.id.progressBar)
         checkC = view.findViewById(R.id.checkC)
-
         progressLayout.visibility = View.VISIBLE
 
         checkC.setOnClickListener {
@@ -115,7 +114,6 @@ class DashboardFragment : Fragment() {
                                     bookJSONObject.getString("price"),
                                     bookJSONObject.getString("image")
                                 )
-
                                 bookInfoList.add(bookObject)
                                 recyclerAdapter =
                                     DashboardRecyclerAdapter(activity as Context, bookInfoList)

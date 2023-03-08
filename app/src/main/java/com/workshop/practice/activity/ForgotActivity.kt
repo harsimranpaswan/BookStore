@@ -36,7 +36,7 @@ class ForgotActivity : AppCompatActivity() {
                 etMail.setError("Please enter your Mail")
             }
             else{
-                var intent=Intent(this@ForgotActivity, GarbageActivity::class.java)
+                var intent=Intent(this@ForgotActivity, MainActivity::class.java)
                 var bundle=Bundle()
                 bundle.putString("src", "forgot")
                 bundle.putString("mail", mail)
